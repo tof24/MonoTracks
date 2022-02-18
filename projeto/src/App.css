@@ -30,3 +30,22 @@
     justify-content: center;
 
 }
+
+.imagemMaster{
+    padding-top: 150px;
+    width: 100%;
+}
+
+.imagemMaster3{
+    padding-top: 200px;
+    width: 100%;
+}
+
+.imagemMaster2{
+    width: 450px;
+    height: auto;
+}
+
+.justo{
+    justify-content: center;
+}

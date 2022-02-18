@@ -6,6 +6,7 @@ import Login from "./paginas/Login";
 import CreatePlaylist from "./paginas/CreatePlaylist";
 import Genres from "./paginas/Genres";
 import Trending from "./paginas/Trending";
+import Genrerock from "./paginas/Genrerock";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap.min.css'
 import {Container} from "reactstrap";
@@ -37,6 +38,10 @@ function App() {
                 <Route path="/genres" element={<Genres/>}>
 
                 </Route>
+                <Route path="/genres/rock" element={<Genrerock/>}>
+
+                </Route>
+
             </Routes>
         </Router>
     )

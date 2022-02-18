@@ -1,22 +1,59 @@
-import React from 'react'
+import {React, useState, useEffect} from 'react'
 import Rock from "../imagens/stones.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'reactstrap'
 
 
-
-
 function Login() {
+
+let i=0;
+
+
+const[artista, setArtista]=useState([])
+    useEffect(()=>{
+        const fetchhh = async() =>{
+        try{
+            const res = await fetch(
+                "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Radiohead&api_key=acb24ec5f7bd68800c7bee59bdfac898&format=json"
+            )
+            let artista = await res.json();
+            console.log(artista);
+            console.log(artista.artist.name);
+
+
+                setArtista(artista.artist);
+
+
+
+
+            //setIsLoading(false);
+        }catch(error){
+            console.log(error);
+        }
+    }
+        fetchhh();
+    },[])
+
+    let imagem="oii";
+if(artista.name!==undefined){
+    let objeto=artista.image[1];
+    console.log(artista.image[1]);
+
+    imagem=artista.image[1]["#text"];
+    console.log(imagem);
+}
+
     return (
         <div className={"bg-light"}>
             <Container className={""}>
                 <Row>
-                    <Col className={"imagemMaster"}>
-                        <img className={"imagemMaster2"} src={require('../imagens/afro.jpg')}></img>
+                    <Col className={"imagemMaster col-6"}>
+
+                        <img className={"imagemMaster2"} src={imagem}></img>
                     </Col>
-                    <Col>
-                        <h2 className={"imagemMaster3"}>Nome do Artista</h2>
-                        <h5 className={"text-justify"}> The Dark Side of the Moon is the eighth studio album by the English rock band Pink Floyd, released on 1 March 1973 by Harvest Records. Primarily developed during live performances, the band premiered an early version of the suite several months before recording began. The record was conceived as an album that focused on the pressures faced by the band during their arduous lifestyle, and dealing with the apparent mental health problems suffered by former band member Syd Barrett, who departed the group in 1968. New material was recorded in two sessions in 1972 and 1973 at Abbey Road Studios in London.</h5>
+                    <Col classNmae={"col-6"}>
+                        <h2 className={"imagemMaster3"}>{artista.name}</h2>
+                        <h5 className={"text-justify"}>{artista.bio.summary}</h5>
                     </Col>
                 </Row>
 
@@ -31,7 +68,9 @@ function Login() {
 
         </div>
     )
+
 }
+
 
 export default Login
 

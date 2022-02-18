@@ -104,8 +104,6 @@ const CreatePlaylist = () => {
 
         setTrackDetail(trackInfo[0].track);
 
-
-
     }
 
 

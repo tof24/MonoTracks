@@ -9,6 +9,7 @@ import Trending from "./paginas/Trending";
 import Genrerock from "./paginas/Genrerock";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap.min.css'
+import axios from "axios";
 import {Container} from "reactstrap";
 
 const CLIENT_ID = "36bda1e027224da29154f586f03b0e47"

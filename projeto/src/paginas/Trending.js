@@ -1,22 +1,45 @@
 import React, {useEffect, useState} from 'react'
+import fetchJsonp from "fetch-jsonp";
 
 function Trending() {
 
-    fetch("https://spotfiy-charts.p.rapidapi.com/?type=regional&country=global&recurrence=weekly&date=latest", {
-        "method": "GET",
-        "headers": {
-            "x-rapidapi-host": "spotfiy-charts.p.rapidapi.com",
-            "x-rapidapi-key": "eac7f954a5mshca607d23fc03be2p1e4d9fjsn0aca8590ae0e"
+    const[chart, setChart]=useState([])
+    useEffect(()=>{
+        const fetchhh3 = async() =>{
+            try{
+                // const res = await fetchJsonp(
+                //     "https://api.deezer.com/chart/0/artists"
+                // )
+                // let chart = await res.json();
+                // console.log("estou aqui")
+                // console.log(chart);
+                // setChart(chart.data);
+
+                fetchJsonp('https://api.deezer.com/chart/0/albums&output=jsonp')
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(json => console.log(json))
+                    .catch(function(error) { console.log(error); });
+
+
+
+                //setIsLoading(false);
+            }catch(error){
+                console.log(error);
+            }
         }
-    })
-        .then(response => {
-            console.log(response.json());
-        })
-        .catch(err => {
-            console.error(err);
-        });
+        fetchhh3();
+    },[])
 
+    let imagema=[];
+    let nomeal=[];
+    if(chart.data!==undefined){
+        for(let i=0; i<12; i++){
 
+            console.log(chart);
+        }
+    }
 
 
 

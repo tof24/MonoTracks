@@ -17,6 +17,22 @@
     color: black;
 }
 
+.trendingtitulo {
+
+    margin: 100px
+
+}
+
+.trending {
+
+
+    text-align: center;
+    background:white;
+    padding: 2em;
+    box-shadow: 20px 20px 20px;
+    margin-bottom: 200px;
+}
+
 .conteudo {
     align-items: center;
     display: flex;

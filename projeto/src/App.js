@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from "./componentes/navbar/Navbar";
 import Index from "./paginas/Index";
 import Login from "./paginas/Login";
+import Album from "./paginas/Album";
 import CreatePlaylist from "./paginas/CreatePlaylist";
 import Genres from "./paginas/Genres";
 import Trending from "./paginas/Trending";
@@ -34,6 +35,9 @@ function App() {
 
                 </Route>
                 <Route path="/genres/rock" element={<Genrerock/>}>
+
+                </Route>
+                <Route path="/album" element={<Album/>}>
 
                 </Route>
 

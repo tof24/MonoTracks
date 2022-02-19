@@ -106,9 +106,9 @@ if(artista.name!==undefined){
                 <h5 className={"py-5"}>Top <span className={"font-weight-bold text-muted"}>{artista.name}'s</span> Albums</h5>
                 <Row>
                     {nomeal.map((album,i)=>(
-                        <Col>
+                        <Col key={i}>
                             <div className={"text-center"}>
-                                <a href={"http://localhost:3000/albuns&" + nomeal[i] + "&" + artista.name}><img src={imagema[i]}/></a>
+                                <a href={"http://localhost:3000/album?nameal=" + nomeal[i] + "&artist=" + artista.name}><img src={imagema[i]}/></a>
                                 <p >{nomeal[i]}</p>
                             </div>
                         </Col>
@@ -131,16 +131,3 @@ if(artista.name!==undefined){
 
 export default Login
 
-
-
-/*
-<Row>
-<Col>
-
-</Col>
-<Col className={"imagemMaster"}>
-<h3>hellooo</h3>
-</Col>
-</Row>
-
-<h1>Nome do artista</h1>*/

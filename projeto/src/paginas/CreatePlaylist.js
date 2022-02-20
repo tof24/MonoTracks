@@ -94,6 +94,7 @@ const CreatePlaylist = () => {
                     listOfTracksFromAPI: tracksResponse.data.items
                 })
             });
+        console.log(playlist.selectedPlaylist)
     }
 
     const listboxClicked = val => {

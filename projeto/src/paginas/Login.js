@@ -15,7 +15,7 @@ const[artista, setArtista]=useState([])
         const fetchhh = async() =>{
         try{
             const res = await fetch(
-                "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Madona&api_key=acb24ec5f7bd68800c7bee59bdfac898&format=json"
+                "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Radiohead&api_key=acb24ec5f7bd68800c7bee59bdfac898&format=json"
             )
             let artista = await res.json();
             console.log(artista);
@@ -53,7 +53,7 @@ if(artista.name!==undefined){
         const fetchhh2 = async() =>{
             try{
                 const res = await fetch(
-                    "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=Madona&api_key=acb24ec5f7bd68800c7bee59bdfac898&format=json"
+                    "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=Radiohead&api_key=acb24ec5f7bd68800c7bee59bdfac898&format=json"
                 )
                 let album = await res.json();
                 console.log("estou aqui")
@@ -97,7 +97,7 @@ if(artista.name!==undefined){
                     </Col>
                     <Col classNmae={"col-6"}>
                         <h2 className={"imagemMaster3"}>{artista.name}</h2>
-                        <h5 className={"text-justify"}>{sumario2[0]}</h5>
+                            <h5 className={"text-justify"}>{sumario2[0]}</h5>
 
                     </Col>
                 </Row>

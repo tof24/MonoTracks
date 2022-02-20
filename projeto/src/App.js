@@ -7,6 +7,8 @@ import Album from "./paginas/Album";
 import CreatePlaylist from "./paginas/CreatePlaylist";
 import Genres from "./paginas/Genres";
 import Trending from "./paginas/Trending";
+import Trendingalbums from "./paginas/Trendingalbums";
+import Trendingartists from "./paginas/Trendingartists";
 import Genrerock from "./paginas/Genrerock";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap.min.css'
@@ -31,10 +33,10 @@ function App() {
                 <Route path="/trending" element={<Trending/>}>
 
                 </Route>
-                <Route path="/trending/artists">
+                <Route path="/trending/artists" element={<Trendingartists/>}>
 
                 </Route>
-                <Route path="/trending/albums">
+                <Route path="/trending/albums" element={<Trendingalbums/>}>
 
                 </Route>
 

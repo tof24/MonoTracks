@@ -3,9 +3,9 @@ import fetchJsonp from "fetch-jsonp";
 import {Row, Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap'
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function Trending() {
+function Trendingartists() {
 
-    const [chart, setChart] = useState([]);
+    const [artist, setArtist] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(prevState => !prevState);
@@ -21,11 +21,11 @@ function Trending() {
                 // console.log(chart);
                 // setChart(chart.data);
 
-                fetchJsonp('https://api.deezer.com/chart/0/tracks&output=jsonp')
+                fetchJsonp('https://api.deezer.com/chart/0/artists&output=jsonp')
                     .then(response => response.json())
                     .then(json => {
                         console.log(json)
-                        setChart(json.data)
+                        setArtist(json.data)
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -43,7 +43,7 @@ function Trending() {
     }, []);
 
 
-    console.log(chart);
+    console.log(artist);
 
 
     // let imagemc=[];
@@ -74,10 +74,10 @@ function Trending() {
                         <DropdownItem href="/trending">
                             Tracks
                         </DropdownItem>
-                        <DropdownItem href="/trending/albums">
+                        <DropdownItem href="/trending/artists">
                             Albums
                         </DropdownItem>
-                        <DropdownItem href="/trending/artists">
+                        <DropdownItem href="/trending/albums">
                             Artists
                         </DropdownItem>
 
@@ -89,16 +89,16 @@ function Trending() {
             <Container className={'trending'}>
 
                 <Row>
-                    {chart !== [] && chart.map((musica, i) => (
+                    {artist !== [] && artist.map((musica, i) => (
 
                         <Col className={'col-4'}>
 
                             <div>
                                 <div key={i}>
-                                    <div className={'mt-4 musicastrend'}>{[i + 1] + '  '} {musica.title}</div>
-                                    <a href={"http://localhost:3000/album?nameal=" + musica.album.title + "&artist=" + musica.artist.name}>
-                                        <img src={musica.album.cover} alt={musica.title}/>
-                                    </a>
+                                    <div className={'mt-4 musicastrend'}>{[i + 1] + '  '} {musica.name}</div>
+                                    {/*<a href={"http://localhost:3000/album?nameal=" + musica.album.title + "&artist=" + musica.artist.name}>*/}
+                                    <img src={musica.picture} alt={musica.title}/>
+                                    {/*</a>*/}
                                 </div>
                             </div>
 
@@ -113,4 +113,4 @@ function Trending() {
 
 }
 
-export default Trending
+export default Trendingartists

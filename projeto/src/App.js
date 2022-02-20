@@ -10,6 +10,7 @@ import Trending from "./paginas/Trending";
 import Genrerock from "./paginas/Genrerock";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap.min.css'
+import Search from "./paginas/Search";
 
 
 
@@ -45,6 +46,9 @@ function App() {
 
                 </Route>
                 <Route path="/album" element={<Album/>}>
+
+                </Route>
+                <Route path="/search" element={<Search/>}>
 
                 </Route>
 

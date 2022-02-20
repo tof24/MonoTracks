@@ -74,10 +74,10 @@ function Trendingartists() {
                         <DropdownItem href="/trending">
                             Tracks
                         </DropdownItem>
-                        <DropdownItem href="/trending/artists">
+                        <DropdownItem href="/trending/albums">
                             Albums
                         </DropdownItem>
-                        <DropdownItem href="/trending/albums">
+                        <DropdownItem href="/trending/artists">
                             Artists
                         </DropdownItem>
 
@@ -96,9 +96,9 @@ function Trendingartists() {
                             <div>
                                 <div key={i}>
                                     <div className={'mt-4 musicastrend'}>{[i + 1] + '  '} {musica.name}</div>
-                                    {/*<a href={"http://localhost:3000/album?nameal=" + musica.album.title + "&artist=" + musica.artist.name}>*/}
+                                    <a href={"http://localhost:3000/artistas?artist=" + musica.name}>
                                     <img src={musica.picture} alt={musica.title}/>
-                                    {/*</a>*/}
+                                    </a>
                                 </div>
                             </div>
 

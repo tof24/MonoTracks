@@ -13,6 +13,7 @@ import Genrerock from "./paginas/Genrerock";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap.min.css'
 import Search from "./paginas/Search";
+import Artistas from "./paginas/Artistas";
 
 
 
@@ -53,6 +54,7 @@ function App() {
                 <Route path="/search" element={<Search/>}>
 
                 </Route>
+                <Route path="/artistas" element={<Artistas/>}/>
 
             </Routes>
         </Router>

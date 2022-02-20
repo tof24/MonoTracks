@@ -22,6 +22,31 @@ a:hover {
     color: black;
 }
 
+.botaosignup {
+
+    border-radius: 20px;
+    background: #256ce1;
+    padding: 10px 22px;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    margin-left: 20px;
+    margin-right: 20px;
+
+}
+
+.botaosignup:hover {
+    background-color: steelblue;
+}
+
+.botaosignup:disabled {
+    background-color: #545b62 ;
+}
+
+
 .trendingtitulo {
 
     margin: 100px

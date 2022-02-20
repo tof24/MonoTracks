@@ -27,7 +27,7 @@ function Navbar() {
                 </NavMenu>
                 <NavBtn>
                     <NavBtnLink to="/login">
-                        Login
+                        Account
                     </NavBtnLink>
                 </NavBtn>
             </Nav>

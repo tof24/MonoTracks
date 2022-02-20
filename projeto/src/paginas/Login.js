@@ -1,125 +1,108 @@
-import {React, useState, useEffect} from 'react'
-import Rock from "../imagens/stones.jpg";
+import {React, useState, useEffect, useRef} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'reactstrap';
-
+import {firebase, logout, useAuth, login} from "./../firebase";
 
 
 function Login() {
 
-let i=0;
 
-//*********** Api de artista *******************
-const[artista, setArtista]=useState([])
-    useEffect(()=>{
-        const fetchhh = async() =>{
-        try{
-            const res = await fetch(
-                "https://ws.audioscrobbler.com/2.0/?method=artist.getinfo&artist=Radiohead&api_key=acb24ec5f7bd68800c7bee59bdfac898&format=json"
-            )
-            let artista = await res.json();
-            console.log(artista);
-            console.log(artista.artist.name);
+    //******************************FIREBASE SIGNUP LOGIN ************************************************
+    //*********************************+++
+    //***********************************
 
 
-                setArtista(artista.artist);
+    const [loading, setLoading] = useState(false);
+    const currentUser = useAuth();
 
+    const emailRef = useRef();
+    const passRef = useRef();
 
+    async function handleSignup() {
 
+        setLoading(true);
+        try {
 
-            //setIsLoading(false);
-        }catch(error){
-            console.log(error);
+            await firebase(emailRef.current.value, passRef.current.value);
+        } catch (e) {
+            alert("Error!")
         }
-    }
-        fetchhh();
-    },[])
+        setLoading(false);
 
-    let imagem="oii";
-let sumario="oii";
-if(artista.name!==undefined){
-    console.log(artista.image[1]);
-    sumario=artista.bio.summary;
-    imagem=artista.image[1]["#text"];
-    console.log(imagem);
-}
-
-
-//*********** Api de Artista *******************
-// *********** Api de Album *******************
-
-    const[album, setAlbum]=useState([])
-    useEffect(()=>{
-        const fetchhh2 = async() =>{
-            try{
-                const res = await fetch(
-                    "https://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=Radiohead&api_key=acb24ec5f7bd68800c7bee59bdfac898&format=json"
-                )
-                let album = await res.json();
-                console.log("estou aqui")
-                console.log(album);
-
-
-
-                setAlbum(album.topalbums);
-
-
-
-
-                //setIsLoading(false);
-            }catch(error){
-                console.log(error);
-            }
-        }
-        fetchhh2();
-    },[])
-
-    let imagema=[];
-    let nomeal=[];
-    if(album.album!==undefined){
-        for(let i=0; i<12; i++){
-        nomeal[i]=album.album[i].name;
-        imagema[i]=album.album[i].image[3]["#text"];
-        console.log(nomeal);
-        }
     }
 
+    async function handleLogin() {
 
-    let sumario2= sumario.split('<a');
+        setLoading(true);
+        try {
+
+            await login(emailRef.current.value, passRef.current.value);
+        } catch (e) {
+            alert("Error!")
+        }
+        setLoading(false);
+
+    }
+
+    async function handleLogout() {
+        setLoading(true);
+        try {
+            await logout();
+        } catch (e) {
+            alert("Error!")
+        }
+        setLoading(false);
+
+    }
+
 
     return (
-        <div className={"bg-light"}>
-            <Container className={""}>
-                <Row>
-                    <Col className={"imagemMaster col-6"}>
+        <div className={"d-flex align-content-center flex-wrap"}>
 
-                        <img className={"imagemMaster2"} src={imagem}></img>
-                    </Col>
-                    <Col classNmae={"col-6"}>
-                        <h2 className={"imagemMaster3"}>{artista.name}</h2>
-                            <h5 className={"text-justify"}>{sumario2[0]}</h5>
+            <Container>
 
-                    </Col>
-                </Row>
 
-            <h3 className={"py-5"}>Albuns</h3>
-                <h5 className={"py-5"}>Top <span className={"font-weight-bold text-muted"}>{artista.name}'s</span> Albums</h5>
-                <Row>
-                    {nomeal.map((album,i)=>(
-                        <Col key={i}>
-                            <div className={"text-center"}>
-                                <a href={"http://localhost:3000/album?nameal=" + nomeal[i] + "&artist=" + artista.name}><img src={imagema[i]}/></a>
-                                <p >{nomeal[i]}</p>
-                            </div>
-                        </Col>
-                        ))}
+                <div className={"text-center"}>
+                    <h1 className={"pt-5 justi"}>
 
-                </Row>
+                        Sign Up or Log in to your MonoTracks account!
+
+                    </h1>
+                </div>
 
 
 
 
+                <div className={"text-center"}>
+                    <input ref={emailRef} className={"mt-5 mr-3 mb-5"} placeholder="Email"/>
+
+
+                    <input ref={passRef} className={"mt-5 ml-3 mb-5"} type={"password"} placeholder="Password"/>
+
+
+                    <div className={"d-block text-center"}>
+                        <button disabled={loading || currentUser} onClick={handleSignup} className={"botaosignup"}>Sign
+                            Up
+                        </button>
+
+                        <button disabled={loading || currentUser} onClick={handleLogin} className={"botaosignup"}>Log In
+                        </button>
+
+                        <button disabled={loading || !currentUser} className={"botaosignup"} onClick={handleLogout}>Log
+                            Out
+                        </button>
+                    </div>
+
+                </div>
+
+                <div className={"pt-5 text-center"}>
+                    You are logged in as: {currentUser?.email}
+                </div>
             </Container>
+
+
+
+
 
 
 

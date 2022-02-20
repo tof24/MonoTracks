@@ -11,8 +11,6 @@ function Album() {
     const queryParams = new URLSearchParams(window.location.search);
     const namealbum = queryParams.get('nameal');
     const artista = queryParams.get('artist');
-    console.log(namealbum);
-    console.log(artista);
 
     const[album, setAlbum]=useState([])
     useEffect(()=>{
@@ -40,15 +38,25 @@ function Album() {
     let sumario2
     let imagema;
     let trackis=[];
-    if(album.artist!==undefined){
 
-        sumario= album.wiki.summary;
-        sumario2= sumario.split('<a');
-        sumario2.pop();
+
+        if(album.artist!==undefined){
+
+            sumario= album.wiki.summary;
+            sumario2= sumario.split('<a');
+            sumario2.pop();
             imagema=album.image[3]["#text"];
             trackis=album.tracks.track;
+        }
 
-    }
+       if (trackis.map!==[]){
+           console.log("we here");
+           trackis = Array.from(trackis);
+           console.log(trackis)
+           console.log("byeeeeeee");
+       }
+
+
 
     function tempomuica(tempo) {
         const sec = parseInt(tempo, 10);

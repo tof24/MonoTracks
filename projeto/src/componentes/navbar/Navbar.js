@@ -20,6 +20,9 @@ function Navbar() {
                     <NavLink to="/playlists" >
                         Playlists
                     </NavLink>
+                    <NavLink to="/search" >
+                        Search
+                    </NavLink>
 
                 </NavMenu>
                 <NavBtn>

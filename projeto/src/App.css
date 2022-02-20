@@ -6,6 +6,11 @@
 
 }
 
+a:hover {
+    text-decoration: none;
+    text-underline: none;
+}
+
 .testemaximo{
     margin-bottom: 0;
 }
@@ -31,6 +36,20 @@
     padding: 2em;
     box-shadow: 20px 20px 20px;
     margin-bottom: 200px;
+}
+
+.musicastrend {
+    text-decoration: none;
+    color: black;
+
+
+
+}
+
+.musicastrend:hover {
+    text-decoration: none;
+    color: black;
+    text-underline: none;
 }
 
 .conteudo {

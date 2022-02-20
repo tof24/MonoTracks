@@ -10,8 +10,7 @@ import Trending from "./paginas/Trending";
 import Genrerock from "./paginas/Genrerock";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './bootstrap.min.css'
-import axios from "axios";
-import {Container} from "reactstrap";
+
 
 
 function App() {
@@ -31,6 +30,14 @@ function App() {
                 <Route path="/trending" element={<Trending/>}>
 
                 </Route>
+                <Route path="/trending/artists">
+
+                </Route>
+                <Route path="/trending/albums">
+
+                </Route>
+
+
                 <Route path="/genres" element={<Genres/>}>
 
                 </Route>

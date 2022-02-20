@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import fetchJsonp from "fetch-jsonp";
-import {Row, Col, Container} from 'reactstrap'
+import {Row, Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap'
 
 function Trending() {
 
@@ -59,6 +59,28 @@ function Trending() {
 
             <h1 className={'trendingtitulo'}> Trending </h1>
 
+            <div className="d-flex justify-content-center p-5 mb-5">
+                <Dropdown toggle={function noRefCheck(){}}>
+                    <DropdownToggle caret>
+                        Choose your trend
+                    </DropdownToggle>
+                    <DropdownMenu
+                    >
+                        <DropdownItem header>
+                            Tracks
+                        </DropdownItem>
+                        <DropdownItem>
+                            Albums
+                        </DropdownItem>
+                        <DropdownItem text>
+                            Artists
+                        </DropdownItem>
+
+                    </DropdownMenu>
+                </Dropdown>
+            </div>
+
+
             <Container className={'trending'}>
 
                 <Row>
@@ -68,8 +90,10 @@ function Trending() {
 
                             <div>
                                 <div key={i}>
-                                    <div className={'mt-4'}>{[i + 1] + '  '} {musica.title}</div>
-                                    <img src={musica.album.cover} alt={musica.title}/>
+                                    <div className={'mt-4 musicastrend'}>{[i + 1] + '  '} {musica.title}</div>
+                                    <a href={"http://localhost:3000/album?nameal=" + musica.album.title + "&artist=" + musica.artist.name}>
+                                        <img src={musica.album.cover} alt={musica.title}/>
+                                    </a>
                                 </div>
                             </div>
 

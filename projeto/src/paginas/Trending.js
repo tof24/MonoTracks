@@ -1,10 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import fetchJsonp from "fetch-jsonp";
 import {Row, Col, Container, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from 'reactstrap'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Trending() {
 
-    const [chart, setChart] = useState([])
+    const [chart, setChart] = useState([]);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggle = () => setIsOpen(prevState => !prevState);
+
     useEffect(() => {
         const fetchhh3 = async () => {
             try {
@@ -59,20 +64,20 @@ function Trending() {
 
             <h1 className={'trendingtitulo'}> Trending </h1>
 
-            <div className="d-flex justify-content-center p-5 mb-5">
-                <Dropdown toggle={function noRefCheck(){}}>
+            <div className="justify-content-center d-flex mb-5">
+                <Dropdown isOpen={isOpen} toggle={toggle} className="mb-5 pb-5">
                     <DropdownToggle caret>
                         Choose your trend
                     </DropdownToggle>
                     <DropdownMenu
                     >
-                        <DropdownItem header>
+                        <DropdownItem href="/trending">
                             Tracks
                         </DropdownItem>
-                        <DropdownItem>
+                        <DropdownItem href="/trending/artists">
                             Albums
                         </DropdownItem>
-                        <DropdownItem text>
+                        <DropdownItem href="/trending/albums">
                             Artists
                         </DropdownItem>
 

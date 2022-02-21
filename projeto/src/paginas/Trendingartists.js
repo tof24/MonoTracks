@@ -64,8 +64,8 @@ function Trendingartists() {
 
             <h1 className={'trendingtitulo'}> Trending </h1>
 
-            <div className="justify-content-center d-flex mb-5">
-                <Dropdown isOpen={isOpen} toggle={toggle} className="mb-5 pb-5">
+            <div className="justify-content-end d-flex mb-5 mr-5 pr-5">
+                <Dropdown isOpen={isOpen} toggle={toggle} >
                     <DropdownToggle caret>
                         Choose your trend
                     </DropdownToggle>

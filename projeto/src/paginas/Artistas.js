@@ -9,6 +9,11 @@ function Artistas() {
     const [artista, setArtista] = useState([]);
     const queryParams = new URLSearchParams(window.location.search);
     const artistas = queryParams.get('artist');
+    console.log("artistas");
+    console.log(artistas);
+
+
+
 
 
     useEffect(() => {
@@ -30,8 +35,11 @@ function Artistas() {
                 console.log(error);
             }
         }
-        fetchhh();
+        if(artistas!==null) {
+            fetchhh();
+        }
     }, [])
+
 
     let imagem = "oii";
     let sumario = "oii";
@@ -66,16 +74,24 @@ function Artistas() {
                 console.log(error);
             }
         }
-        fetchhh2();
+        if(artistas!==null) {
+            fetchhh2();
+        }
     }, [])
+    let album2=album.album;
+
 
     let imagema = [];
     let nomeal = [];
     if (album.album !== undefined) {
         for (let i = 0; i < 12; i++) {
-            nomeal[i] = album.album[i].name;
-            imagema[i] = album.album[i].image[3]["#text"];
-            console.log(nomeal);
+            if(i<album2.length){
+                nomeal[i] = album.album[i].name;
+                imagema[i] = album.album[i].image[3]["#text"];
+            }
+            if (imagema[i]== null || imagema[i]==''){
+                imagema[i]="https://lastfm.freetls.fastly.net/i/u/300x300/125a8a202404baf6449b9f05ae106d31.png";
+            }
         }
     }
 

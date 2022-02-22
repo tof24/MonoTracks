@@ -134,3 +134,41 @@ a:hover {
 .justo{
     justify-content: center;
 }
+.link {
+    display: inline-block;
+    position: relative;
+    color: #1b1e21;
+    text-decoration: none !important;
+
+}
+
+.link:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #1b1e21;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+
+}
+
+.link:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+a:hover{
+    color: #ba8b00 !important;
+}
+
+.backii{
+    background: rgb(157,151,92);
+    background: -moz-radial-gradient(circle, rgba(157,151,92,1) 0%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(157,151,92,1) 0%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%);
+    background: radial-gradient(circle, rgba(157,151,92,1) 0%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9d975c",endColorstr="#000000",GradientType=1);
+}

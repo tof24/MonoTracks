@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Row, Col, Container} from 'reactstrap';
 
 
-
 function Album() {
 
 // *********** Api de Album info *******************
@@ -11,6 +10,8 @@ function Album() {
     const queryParams = new URLSearchParams(window.location.search);
     const namealbum = queryParams.get('nameal');
     const artista = queryParams.get('artist');
+    const mbid= queryParams.get('mbid');
+
 
     const[album, setAlbum]=useState([])
     useEffect(()=>{
@@ -32,29 +33,81 @@ function Album() {
                 console.log(error);
             }
         }
-        fetchhh2();
+        if(artista!==null) {
+            fetchhh2();
+        }
     },[])
+
+    // *********** Api de Album se for por Mbid *******************
+
+    useEffect(()=>{
+        const fetchhh3 = async() =>{
+            try{
+                const res = await fetch(
+                    "https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=acb24ec5f7bd68800c7bee59bdfac898&mbid="+mbid+"&format=json"
+                )
+                let album = await res.json();
+                console.log(album.album);
+
+                setAlbum(album.album);
+
+
+
+
+                //setIsLoading(false);
+            }catch(error){
+                console.log(error);
+            }
+        }
+        if(mbid!==null) {
+            fetchhh3();
+        }
+    },[])
+
+
+
+
     let sumario;
-    let sumario2
+    let sumario2;
     let imagema;
     let trackis=[];
 
 
         if(album.artist!==undefined){
-
+            if(album.wiki!== undefined){
             sumario= album.wiki.summary;
             sumario2= sumario.split('<a');
             sumario2.pop();
-            imagema=album.image[3]["#text"];
+            }else{
+                sumario="No summary available";
+                sumario2="No summary available";
+            }
+
+
+            if (album.tracks.track==""){}
+            imagema=album.image[5]["#text"];
             trackis=album.tracks.track;
+
+
+            if (trackis.map!==[]){
+                trackis = Array.from(trackis);
+                console.log("oi")
+                console.log(trackis);
+                if (trackis.length==0){
+
+                    trackis=[{
+                        name: album.tracks.track.name,
+                        duration:album.tracks.track.duration
+                    }
+                    ]
+
+
+                    console.log(album.tracks.track.name);
+                }
+            }
+
         }
 
-       if (trackis.map!==[]){
-           console.log("we here");
-           trackis = Array.from(trackis);
-           console.log(trackis)
-           console.log("byeeeeeee");
-       }
 
 
 
@@ -92,7 +145,7 @@ function Album() {
             <Container>
 
             <h3 className={"py-5"}>Tracks</h3>
-            <div>
+            <div className={"pb-5 mb-5"}>
                 {trackis.map((faixa,i)=>(
                     <div key={i}>
                         <div className={""}>

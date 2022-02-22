@@ -11,7 +11,7 @@ import Trendingalbums from "./paginas/Trendingalbums";
 import Trendingartists from "./paginas/Trendingartists";
 import Genrerock from "./paginas/Genrerock";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './bootstrap.min.css'
+import './bootstrap.min.css';
 import Search from "./paginas/Search";
 import Artistas from "./paginas/Artistas";
 

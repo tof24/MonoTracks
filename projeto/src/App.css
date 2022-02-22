@@ -24,6 +24,16 @@
 
 }
 
+.boxindex {
+
+    text-align: center;
+    background:lightgray;
+    padding: 2em;
+    box-shadow: 20px 20px 20px;
+    margin-bottom: 200px;
+    border-radius: 30px;
+}
+
 
 .title {
     text-align: center;
@@ -68,6 +78,18 @@ a:hover {
 
 }
 
+.botaoindex {
+
+    text-decoration: none;
+    color: white;
+
+}
+
+.botaoindex:hover {
+    text-decoration: none;
+    color: white;
+}
+
 .botaosignup:hover {
     background-color: steelblue;
 }
@@ -79,12 +101,12 @@ a:hover {
 
 .trendingtitulo {
 
-    margin: 100px
+    margin-top: 50px;
+    margin-left: 50px;
 
 }
 
 .trending {
-
 
     text-align: center;
     background:white;

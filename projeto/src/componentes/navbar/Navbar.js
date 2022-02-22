@@ -8,7 +8,7 @@ function Navbar() {
         <>
             <Nav>
                 <NavLink to="/">
-                    <h2> Mono Tracks</h2>
+                    <h2> MonoTracks</h2>
                 </NavLink>
                 <NavMenu>
                     <NavLink to="/genres" >

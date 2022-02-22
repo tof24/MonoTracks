@@ -64,8 +64,8 @@ function Trendingalbums() {
 
             <h1 className={'trendingtitulo'}> Trending </h1>
 
-            <div className="justify-content-center d-flex mb-5">
-                <Dropdown isOpen={isOpen} toggle={toggle} className="mb-5 pb-5">
+            <div className="justify-content-end d-flex pr-5 mr-5 mb-5">
+                <Dropdown isOpen={isOpen} toggle={toggle}>
                     <DropdownToggle caret>
                         Choose your trend
                     </DropdownToggle>
@@ -94,7 +94,7 @@ function Trendingalbums() {
                         <Col className={'col-4'}>
 
                             <div>
-                                <div key={i}>
+                                <div className={"text-center"} key={i}>
                                     <div className={'mt-4 musicastrend'}>{[i + 1] + '  '} {musica.title}</div>
                                     <a href={"http://localhost:3000/album?nameal=" + musica.title + "&artist=" + musica.artist.name}>
                                         <img src={musica.cover} alt={musica.title}/>

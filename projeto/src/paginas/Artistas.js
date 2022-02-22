@@ -107,7 +107,7 @@ function Artistas() {
                 <Row>
                     <Col className={"imagemMaster col-6"}>
 
-                        <img className={"imagemMaster2"} src={imagem}></img>
+                        <img className={"imagemMaster2"} src={imagema}></img>
                     </Col>
                     <Col className={"col-6"}>
                         <h2 className={"imagemMaster3"}>{artista.name}</h2>

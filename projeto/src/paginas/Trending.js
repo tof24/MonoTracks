@@ -13,13 +13,6 @@ function Trending() {
     useEffect(() => {
         const fetchhh3 = async () => {
             try {
-                // const res = await fetchJsonp(
-                //     "https://api.deezer.com/chart/0/artists"
-                // )
-                // let chart = await res.json();
-                // console.log("estou aqui")
-                // console.log(chart);
-                // setChart(chart.data);
 
                 fetchJsonp('https://api.deezer.com/chart/0/tracks&output=jsonp')
                     .then(response => response.json())
@@ -91,8 +84,8 @@ function Trending() {
                 <Row>
                     {chart !== [] && chart.map((musica, i) => (
 
-                        <Col className={'col-4'}>
-                            <div>
+                        <Col key={i} className={'col-4'}>
+                            <div >
                                 <div className={"text-center"} key={i}>
                                     <div className={'mt-4 musicastrend'}>{[i + 1] + '  '} {musica.title}</div>
                                     <a href={"http://localhost:3000/album?nameal=" + musica.album.title + "&artist=" + musica.artist.name}>

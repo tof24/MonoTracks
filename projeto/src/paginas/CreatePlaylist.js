@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Dropdown from '../Dropdown';
-import Listbox from '../Listbox';
+import Lista from '../Lista';
 import Detail from '../Detail';
 import { Credentials } from '../Credentials';
 import axios from 'axios';
@@ -8,8 +8,6 @@ import axios from 'axios';
 const CreatePlaylist = () => {
 
     const spotify = Credentials();
-
-    console.log('RENDERING APP.JS');
 
     const data = [
         {value: 1, name: 'A'},
@@ -36,7 +34,7 @@ const CreatePlaylist = () => {
             .then(tokenResponse => {
                 setToken(tokenResponse.data.access_token);
 
-                axios('https://api.spotify.com/v1/browse/categories?locale=sv_US', {
+                axios('https://api.spotify.com/v1/browse/categories?locale=sv_PT', {
                     method: 'GET',
                     headers: { 'Authorization' : 'Bearer ' + tokenResponse.data.access_token}
                 })
@@ -111,17 +109,17 @@ const CreatePlaylist = () => {
 
 
     return (
-        <div className="container">
-            <form onSubmit={buttonClicked}>
+        <div className="container py-5 pl-5">
+            <form className={"pt-5"} onSubmit={buttonClicked}>
                 <Dropdown label="Genre :" options={genres.listOfGenresFromAPI} selectedValue={genres.selectedGenre} changed={genreChanged} />
                 <Dropdown label="Playlist :" options={playlist.listOfPlaylistFromAPI} selectedValue={playlist.selectedPlaylist} changed={playlistChanged} />
                 <div className="col-sm-6 row form-group px-0">
-                    <button type='submit' className="btn btn-success col-sm-12">
+                    <button type='submit' className="btn btn-warning border-dark">
                         Search
                     </button>
                 </div>
                 <div className="row">
-                    <Listbox items={tracks.listOfTracksFromAPI} clicked={listboxClicked} />
+                    <Lista items={tracks.listOfTracksFromAPI} clicked={listboxClicked} />
                     {trackDetail && <Detail {...trackDetail} /> }
                 </div>
             </form>

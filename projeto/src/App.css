@@ -194,3 +194,21 @@ a:hover{
     background: radial-gradient(circle, rgba(157,151,92,1) 0%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9d975c",endColorstr="#000000",GradientType=1);
 }
+
+.imagemm {
+    display: inline-block;
+    position: relative;
+    color: #1b1e21;
+    -webkit-filter: brightness(100%);
+
+
+}
+
+.imagemm:hover {
+    -webkit-filter: brightness(30%);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}

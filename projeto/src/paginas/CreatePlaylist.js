@@ -9,11 +9,6 @@ const CreatePlaylist = () => {
 
     const spotify = Credentials();
 
-    const data = [
-        {value: 1, name: 'A'},
-        {value: 2, name: 'B'},
-        {value: 3, name: 'C'},
-    ];
 
     const [token, setToken] = useState('');
     const [genres, setGenres] = useState({selectedGenre: '', listOfGenresFromAPI: []});
@@ -130,16 +125,3 @@ const CreatePlaylist = () => {
 }
 
 export default CreatePlaylist
-/*function CreatePlaylist() {
-    return (
-        <div className={"conteudo"}>
-            <h1>
-                CreatePlaylist
-            </h1>
-        </div>
-    )
-}
-
-export default CreatePlaylist
-*/
-

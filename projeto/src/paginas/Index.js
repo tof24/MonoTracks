@@ -38,7 +38,7 @@ function Index() {
 
                 <Col className={"col-5 m-5 boxindex text-center p-5"}>
                     <p>
-                        Create your own playlist based on your current mood. Select a song you really like and we will present you with a brand new playlist that you can listen to or save for ater.
+                        Create your own playlist based on your current mood. Select a song you really like and we will present you with a brand new playlist that you can listen to or save for after.
                     </p>
 
 

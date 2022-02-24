@@ -11,9 +11,6 @@ function Navbar() {
                     <h2> MonoTracks</h2>
                 </NavLink>
                 <NavMenu>
-                    <NavLink to="/genres" >
-                        Genres
-                    </NavLink>
                     <NavLink to="/trending" >
                         Trending
                     </NavLink>

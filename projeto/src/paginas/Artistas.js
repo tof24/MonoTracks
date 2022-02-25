@@ -41,8 +41,8 @@ function Artistas() {
     }, [])
 
 
-    let imagem = "oii";
-    let sumario = "oii";
+    let imagem = "";
+    let sumario = "";
     if (artista.name !== undefined) {
         console.log(artista.image[1]);
         sumario = artista.bio.summary;
